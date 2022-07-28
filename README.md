@@ -5,7 +5,7 @@ Kafka Streams hands-on
 Open 3 shell terminals:
 
 1. First, create the topics:
-
+`
 kafka-topics --create \
     --bootstrap-server localhost:9092 \
     --replication-factor 1 \
@@ -18,6 +18,7 @@ kafka-topics --create \
     --partitions 1 \
     --topic streams-wordcount-output \
     --config cleanup.policy=compact
+    `
 
 2. Terminal one, run the WordCount app:
 
