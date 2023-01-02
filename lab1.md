@@ -39,7 +39,7 @@ kafka-console-producer \
 ### 5. Checking topic offsets
 
 ``` 
-kafka-run-class kafka.tools.GetOffsetShell 
+kafka-run-class kafka.tools.GetOffsetShell \
   --broker-list edge2ai-0.dim.local:9092 \
   --topic device_status --time -1
 ```
