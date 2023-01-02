@@ -9,7 +9,7 @@
 kafka-topics --create \
   --bootstrap-server edge2ai-0.dim.local:9092
   --replication-factor 1 \
-  --partitions 5 \
+  --partitions 1 \
   --topic device_status
   ```
  
@@ -26,5 +26,14 @@ kafka-topics --list \
 kafka-topics --describe \
   --bootstrap-server edge2ai-0.dim.local:9092 \
   --topic device_status
+```
+  
+ ### 4. Change topic replicas
+
+```             
+kafka-topics --alter \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --topic device_status
+  --partitions 3
 ```
   
