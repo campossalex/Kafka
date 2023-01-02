@@ -18,5 +18,13 @@ kafka-topics --create \
 ``` 
 kafka-topics --list \
   --bootstrap-server edge2ai-0.dim.local:9092
-  ```
+```
+  
+ ### 3. Describe topics
+
+``` 
+kafka-topics --describe \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --topic device_status
+```
   
