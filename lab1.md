@@ -83,4 +83,11 @@ kafka-topics --alter \
 ```
 
 > **WARNING**: Try to decrease the number of partitions and see the result!
-  
+
+### 10. Topic deletion
+
+```
+kafka-topics --delete \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --topic device_status
+  ```
