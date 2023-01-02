@@ -13,7 +13,7 @@ kafka-topics --create \
   --topic device_status
   ```
  
- ### 2. List topics
+### 2. List topics
 
 ``` 
 kafka-topics --list \
@@ -27,8 +27,36 @@ kafka-topics --describe \
   --bootstrap-server edge2ai-0.dim.local:9092 \
   --topic device_status
 ```
-  
- ### 4. Change topic replicas
+
+### 4. Publishing messages
+
+``` 
+kafka-console-producer \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --topic device_status
+```
+
+### 5. Checking topic offsets
+
+``` 
+kafka-run-class kafka.tools.GetOffsetShell 
+  --broker-list edge2ai-0.dim.local:9092 \
+  --topic device_status --time -1
+```
+
+> The numbers specified by --time -1 and -2 mean "latest offset" and "earliest offset", respectively
+
+### 6. Consuming messages
+
+``` 
+kafka-console-consumer \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --topic device_status \
+  --from-beginning \
+  --group my-consumer
+```
+
+### 8. Change topic replicas
 
 ```             
 kafka-topics --alter \
