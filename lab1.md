@@ -53,7 +53,16 @@ kafka-console-consumer \
   --bootstrap-server edge2ai-0.dim.local:9092 \
   --topic device_status \
   --from-beginning \
-  --group my-consumer
+  --group my-cli-consumer
+```
+
+### 7. Checking consumer offset
+
+``` 
+kafka-consumer-groups \
+  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --group my-cli-consumer \
+  --describe
 ```
 
 ### 8. Change topic replicas
