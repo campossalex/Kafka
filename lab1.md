@@ -67,10 +67,10 @@ kafka-consumer-groups \
 
 ### 8. Checking consumer offset
 
-a. Open a second terminal and produce more message (step 4). You should see them been consumed inmediately in the consumer terminal.
-b. Check consumer offsets again (step 7). Lag should be zero, which means all produced messages were consumed.
-c. Now stop consumer and produce more messages (step 4). Check consumer offset again (step 7) to see lag, which means there are messages that were not consumed yet.
-d. Start the consumer again (step 6), then check consumer offset (step 7)
+a. Open a second terminal and produce more message (step 4). You should see them been consumed inmediately in the consumer terminal.  
+b. Check consumer offsets again (step 7). Lag should be zero, which means all produced messages were consumed.  
+c. Now stop consumer and produce more messages (step 4). Check consumer offset again (step 7) to see lag, which means there are messages that were not consumed yet.  
+d. Start the consumer again (step 6), then check consumer offset (step 7).  
 
 ### 9. Change topic replicas
 
