@@ -9,7 +9,7 @@
 kafka-topics --create \
   --bootstrap-server edge2ai-0.dim.local:9092
   --replication-factor 1 \
-  --partitions 2 \
+  --partitions 1 \
   --topic device_status
   ```
  
