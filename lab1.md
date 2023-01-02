@@ -33,7 +33,7 @@ kafka-topics --describe \
 ```             
 kafka-topics --alter \
   --bootstrap-server edge2ai-0.dim.local:9092 \
-  --topic device_status
+  --topic device_status \
   --partitions 3
 ```
   
