@@ -9,7 +9,7 @@
 kafka-topics --create \
   --bootstrap-server edge2ai-0.dim.local:9092
   --replication-factor 1 \
-  --partitions 1 \
+  --partitions 2 \
   --topic device_status
   ```
  
@@ -36,4 +36,6 @@ kafka-topics --alter \
   --topic device_status \
   --partitions 3
 ```
+
+> **WARNING**: Try to set partition = 1 and see the result!
   
