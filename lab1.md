@@ -8,7 +8,7 @@
 ``` 
 kafka-topics --create \
   --bootstrap-server edge2ai-0.dim.local:9092
-  --replication-factor 3 \
+  --replication-factor 1 \
   --partitions 5 \
   --topic device_status
   ```
@@ -17,6 +17,6 @@ kafka-topics --create \
 
 ``` 
 kafka-topics --list \
-  --bootstrap-server cmhost:9092
+  --bootstrap-server edge2ai-0.dim.local:9092
   ```
   
