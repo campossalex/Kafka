@@ -2,6 +2,7 @@
 
 - Use the command-line interface to create and manage Kafka topics 
 - Publish messages and read messages from the command line
+- Understand topic offsets
 
 ### 1. Creating topics
 
