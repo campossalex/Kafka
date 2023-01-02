@@ -7,7 +7,7 @@
 
 ``` 
 kafka-topics --create \
-  --bootstrap-server edge2ai-0.dim.local:9092
+  --bootstrap-server edge2ai-0.dim.local:9092 \
   --replication-factor 1 \
   --partitions 1 \
   --topic device_status
@@ -34,8 +34,8 @@ kafka-topics --describe \
 kafka-topics --alter \
   --bootstrap-server edge2ai-0.dim.local:9092 \
   --topic device_status \
-  --partitions 3
+  --partitions 2
 ```
 
-> **WARNING**: Try to set partition = 1 and see the result!
+> **WARNING**: Try to decrease the number of partitions and see the result!
   
