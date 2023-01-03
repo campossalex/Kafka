@@ -88,3 +88,18 @@ Compile / package the code again.
 ```
 mvn clean package
 ```
+
+### 7. Start the Producer again
+
+``` 
+mvn exec:java \
+    -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
+    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
+``` 
+
+### 8. Check SMM
+
+It takes some seconds, but you will be able to see a `java-cli-producer` producer linked to `customers` topic.
+
+<img width="1410" alt="lab3_smm_2" src="https://user-images.githubusercontent.com/32500181/210400178-54f45fe0-c148-4d21-b6b4-c5266efecdd0.png">
+
