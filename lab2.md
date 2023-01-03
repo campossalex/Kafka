@@ -34,4 +34,17 @@ mvn exec:java \
 
 You should see the consumer pause, waiting for messages in the `customers` topic
 
-### 2. Start the consumer
+### 3. Start the Producer
+
+The producer expects the following arguments:
+- List of Brokers
+- Topic name
+- Number of messages to produce
+
+In the second terminal tab/window, run the following command to produce `500` message to `customers`topic:
+
+``` 
+mvn exec:java \
+    -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
+    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
+``` 
