@@ -89,7 +89,7 @@ Compile / package the code again.
 mvn clean package
 ```
 
-### 7. Start the Producer again
+Start the Producer again
 
 ``` 
 mvn exec:java \
@@ -97,7 +97,7 @@ mvn exec:java \
     -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
 ``` 
 
-### 8. Check SMM
+### 7. Check SMM
 
 It takes some seconds, but you will be able to see a `java-cli-producer` producer linked to `customers` topic.
 
