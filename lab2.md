@@ -48,3 +48,12 @@ mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
     -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
 ``` 
+
+### 4. See messages
+
+Switch to the consumer terminal. You should see output resembling the following in the consumer terminal:
+
+```
+Received record with offset = 0, key = null, value = 185001,Holly,Hawkins,909-555-8546
+Received record with offset = 1, key = null, value = 185002,Linda,Ortega,602-555-6596
+```
