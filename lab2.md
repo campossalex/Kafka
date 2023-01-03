@@ -49,7 +49,7 @@ mvn exec:java \
     -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
 ``` 
 
-### 4. See messages
+### 4. See consumed messages
 
 Switch to the consumer terminal. You should see output resembling the following in the consumer terminal:
 
@@ -57,3 +57,11 @@ Switch to the consumer terminal. You should see output resembling the following 
 Received record with offset = 0, key = null, value = 185001,Holly,Hawkins,909-555-8546
 Received record with offset = 1, key = null, value = 185002,Linda,Ortega,602-555-6596
 ```
+
+### 5. Check SMM
+
+
+<img width="1405" alt="lab3_smm_1" src="https://user-images.githubusercontent.com/32500181/210392825-13f6e87d-2aaa-4d49-b90c-b71f6ea17752.png">
+
+
+
