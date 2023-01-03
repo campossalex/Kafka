@@ -65,4 +65,26 @@ You should be able to see one partition, a `producer` (left hand side) and a `co
 
 <img width="1405" alt="lab3_smm_1" src="https://user-images.githubusercontent.com/32500181/210392825-13f6e87d-2aaa-4d49-b90c-b71f6ea17752.png">
 
+As you can see, `producer` is identified as `producer-1`. Not very descriptive. Time to change this.
 
+### 6. Add the client.id to producer
+
+Open the Producer java to edit the code. Use vi or other editor:
+
+```
+vi src/main/java/com/cloudera/training/kafka/solution/SimpleProducer.java
+```
+After line 30, add the following instruction to the code:
+
+```
+        props.setProperty(ProducerConfig.CLIENT_ID_CONFIG, "java-cli-producer");
+```
+> Take care with the code indentation. Align the new instruction with the previous one already declared in the code.
+
+Now our `producer` will be call `java-cli-producer`
+
+Compile / package the code again.
+
+```
+mvn clean package
+```
