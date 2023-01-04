@@ -1,67 +1,41 @@
 # Lab 2
 
-- Produce and consume Kafka message in Java applications 
+- Understand SMM UI
+- Walk through SMM components and features
 
-Open two terminals and cd to this exercise directory:
+### 1. Overview page
 
-```
-cd /tmp/resource/exercise-code/producer-consumer-java
-```
-Compile / package the code. Note you will need to issue this command if any code is changed
+<img width="1404" alt="Screenshot 2023-01-04 at 17 37 29" src="https://user-images.githubusercontent.com/32500181/210604421-344a0abc-857d-42d2-8399-f0e8f3ee34d8.png">
 
-```
-mvn clean package
-```
-### 1. Create the topic
-
-``` 
-kafka-topics --create \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
-  --replication-factor 1 \
-  --partitions 1 \
-  --topic customers
-  ```
  
-### 2. Start the consumer
+### 2. Monitoring clusters
 
-In one of the terminals, run the following command:
+https://docs.cloudera.com/csp/2.0.1/monitoring-kafka-clusters/topics/smm-monitoring-clusters.html
 
-``` 
-mvn exec:java \
-    -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers"
-```
+### 3. Monitoring producers
 
-You should see the consumer pause, waiting for messages in the `customers` topic
+https://docs.cloudera.com/csp/2.0.1/monitoring-kafka-clusters/topics/smm-monitoring-producers.html
 
-### 3. Start the Producer
+### 4. Monitoring topics
 
-The producer expects the following arguments:
-- List of Brokers
-- Topic name
-- Number of messages to produce
+https://docs.cloudera.com/csp/2.0.1/monitoring-kafka-clusters/topics/smm-monitoring-topics.html
 
-In the second terminal tab/window, run the following command to produce `500` message to `customers`topic:
+### 5. Monitoring brokers
 
-``` 
-mvn exec:java \
-    -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
-``` 
+https://docs.cloudera.com/csp/2.0.1/monitoring-kafka-clusters/topics/smm-monitoring-brokers.html
 
-### 4. See consumed messages
+### 6. Monitoring consumers
 
-Switch to the consumer terminal. You should see output resembling the following in the consumer terminal:
+https://docs.cloudera.com/csp/2.0.1/monitoring-kafka-clusters/topics/smm-monitoring-consumers.html
 
-```
-Received record with offset = 0, key = null, value = 185001,Holly,Hawkins,909-555-8546
-Received record with offset = 1, key = null, value = 185002,Linda,Ortega,602-555-6596
-```
+### 6. Managing alerts
 
-### 5. Check SMM
+https://docs.cloudera.com/csp/2.0.1/managing-alert-policies/topics/smm-alert-policies-overview.html
 
+### 7. Managing topics
 
-<img width="1405" alt="lab3_smm_1" src="https://user-images.githubusercontent.com/32500181/210392825-13f6e87d-2aaa-4d49-b90c-b71f6ea17752.png">
+https://docs.cloudera.com/csp/2.0.1/managing-topics/topics/smm-create-kafka-topic.html
 
+### 8. End to end latency
 
-
+https://docs.cloudera.com/csp/2.0.1/monitoring-end-to-end-latency/topics/smm-end-to-end-latency-overview.html
