@@ -30,7 +30,8 @@ Add a description for the schema
 
 ### 4. Click anywhere in the "Schema Text" field, not the green "Browse" button.
 
-### 5.Copy the content of `customers_v1.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
+### 5. Copy the content of `customers_v1.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
+
 ````
 cat customers_v1.asc
 ````
@@ -47,7 +48,7 @@ Note there is one version "v1" of the schema
 
 ![schema-details](https://user-images.githubusercontent.com/32500181/210565090-1c1d384a-4dc6-436e-8d73-f51713cf81c5.png)
 
-
+## Execute the pipeline
 
 ### 1. Create the topic
 
@@ -56,7 +57,7 @@ kafka-topics --create \
   --bootstrap-server edge2ai-0.dim.local:9092 \
   --replication-factor 1 \
   --partitions 1 \
-  --topic customers
+  --topic customers_avro
   ```
  
 ### 2. Start the consumer
@@ -64,35 +65,64 @@ kafka-topics --create \
 In one of the terminals, run the following command:
 
 ``` 
-mvn exec:java \
+mvn -q exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers"
+    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro" \
+    -Dlog4j.configuration=file:src/main/consumer-log4j.properties
 ```
 
-You should see the consumer pause, waiting for messages in the `customers` topic
+You should see the consumer pause, waiting for messages in the `customers_avro` topic
 
 ### 3. Start the Producer
 
-The producer expects the following arguments:
-- List of Brokers
-- Topic name
-- Number of messages to produce
-
-In the second terminal tab/window, run the following command to produce `500` message to `customers`topic:
+In the second terminal tab/window, run the following command to produce only `10` message to `customers_avro`topic:
 
 ``` 
-mvn exec:java \
+mvn -q exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
+    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
+    -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
+
+The producer will output the schema which it has downloaded from Schema Registry
+
+```
+Using internal version [1] of schema [customers_avro]
+Here's the schema:
+{
+  "type": "record",
+  "name": "Customer",
+  "namespace": "com.cloudera.training.kafka.data",
+  "doc": "Represents a customer for Loudacre Mobile",
+  "fields": [
+    {
+      "name": "customer_id",
+      "type": "int"
+    },
+    ...
+  ]
+}
+```
+
+You will then see information about the records sent by the producer:
+```
+Sending message 1 of 10
+Sending customer id 185004 with NULL phone number
+Sent message: {"customer_id": 185001, "first_name": "Jamie", "last_name": "Rodriguez", "phone_number": null}
+```
 
 ### 4. See consumed messages
 
 Switch to the consumer terminal. You should see output resembling the following in the consumer terminal:
 
 ```
-Received record with offset = 0, key = null, value = 185001,Holly,Hawkins,909-555-8546
-Received record with offset = 1, key = null, value = 185002,Linda,Ortega,602-555-6596
+========
+Record partition:offset = 0:0
+Record key = null
+Record headers = [RecordHeader(key = value.schema.version.id, value = [3, 0, 0, 0, 1])]
+Record value :
+ {"customer_id": 185001, "first_name": "Jamie", "last_name": "Rodriguez", "phone_number": null}
+========
 ```
 
 ### 5. Check SMM
