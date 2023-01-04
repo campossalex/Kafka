@@ -6,7 +6,7 @@
 Open two terminals and cd to this exercise directory:
 
 ```
-cd /tmp/resource/exercise-code/avro-schema-kafka
+cd /tmp/resources/exercise-code/avro-schema-kafka
 ```
 
 
