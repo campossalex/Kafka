@@ -5,7 +5,7 @@
 Open two terminals and cd to this exercise directory:
 
 ```
-cd /tmp/resource/exercise-code/producer-consumer-java
+cd /tmp/resources/exercise-code/producer-consumer-java
 ```
 Compile / package the code. Note you will need to issue this command if any code is changed
 
