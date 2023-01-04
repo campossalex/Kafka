@@ -1,7 +1,7 @@
 # Lab 5
 
-- Create end to end latency metrics
-- Review End to End latency in SMM
+- Enable interceptor for Kafka clients
+- Review End to End latency metrics in SMM
 
 Open two terminals and cd to this exercise directory:
 
