@@ -150,40 +150,63 @@ e. You should now see the values displayed in readable JSON format
 - Note the `null` values for the `phone_number` field
 
 
-### 6. Add the client.id to producer
+## Evolve the Schema
 
-Open the Producer java to edit the code. Use vi or other editor:
 
-```
-vi src/main/java/com/cloudera/training/kafka/solution/SimpleProducer.java
-```
-After line 30, add the following instruction to the code:
+We will use Schema Registry to create a new version of the schema, adding a default value for `phone_number` field.
 
-```
-        props.setProperty(ProducerConfig.CLIENT_ID_CONFIG, "java-cli-producer");
-```
-> Take care with the code indentation. Align the new instruction with the previous one already declared in the code.
+View the details of the customer_avro schema in Schema Registry, by clicking on it
 
-Now our `producer` will be call `java-cli-producer`
+### 1. Edit the customers_avro schema by clicking the "Pen" icon
 
-Compile / package the code again.
+![schema_registry_edit_schema](https://user-images.githubusercontent.com/32500181/210600632-e1fe8134-1428-4c5b-bf33-a435fc57fdf9.png)
 
-```
-mvn clean package
-```
+### 2. An "Edit Version" dialog will appear with the current schema in the "Schema Text" box.
 
-Start the Producer again
+We recommend uploading the new version, to avoid typos. Press "Clear".
+
+### 3. You should now see a prompt resembling the below screenshot
+
+schema_registry_clear_dialog.png
+
+### 4. Copy the content of `customers_v2.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
+
+````
+cat customers_v2.asc
+````
+
+Important review the schema to see the changes.
+
+### 5. Provide a description for this revision
+
+### 6. Press "Validate". You should see a "Schema is Valid" message
+
+schema_registry_add_version.png
+
+![schema_registry_add_version](https://user-images.githubusercontent.com/32500181/210601144-f3d09788-bed3-4475-8f7a-fd38c8d9a585.png)
+
+Press "Save". You should see a green message from Schema Registry in the upper right corner indicating the schema was saved
+
+### 7. Run the Producer again
+
+In the second terminal tab/window, run the following command to produce only `10` message to `customers_avro`topic:
 
 ``` 
-mvn exec:java \
+mvn -q exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
+    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
+    -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
-### 7. Check SMM
+You should see output similar to the previous run of the producer. Note the differences between the previous run.
 
-It takes some seconds, but you will be able to see a `java-cli-producer` producer linked to `customers` topic.
+### 8. View the results in the Consumer
 
-<img width="1410" alt="lab3_smm_2" src="https://user-images.githubusercontent.com/32500181/210400178-54f45fe0-c148-4d21-b6b4-c5266efecdd0.png">
+The consumer should still be running. Simply switch to the consumer terminal.
 
- 
+You should see the new default value for `phone_number` in the consumed records
+
+### 9. View the data using Streams Messaging Manager
+
+Revisit the data in the `customers_avro` topic using Streams Messaging Manager. Remember to use the Avro schema (either version 1 or 2 will work) to view the messages. You should see the new default phone number on the latest records. The earliest records will still show `null` for the `phone_number`. This is because the producer actually wrote null as the `phone_number` value in the earlier records.
+
