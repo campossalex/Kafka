@@ -65,7 +65,7 @@ kafka-topics --create \
 In one of the terminals, run the following command:
 
 ``` 
-mvn -q exec:java \
+mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
     -Dexec.args="edge2ai-0.dim.local:9092 customers_avro" \
     -Dlog4j.configuration=file:src/main/consumer-log4j.properties
@@ -78,7 +78,7 @@ You should see the consumer pause, waiting for messages in the `customers_avro` 
 In the second terminal tab/window, run the following command to produce only `10` message to `customers_avro`topic:
 
 ``` 
-mvn -q exec:java \
+mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
     -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
@@ -190,7 +190,7 @@ Press "Save". You should see a green message from Schema Registry in the upper r
 In the second terminal tab/window, run the following command to produce only `10` message to `customers_avro`topic:
 
 ``` 
-mvn -q exec:java \
+mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
     -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
