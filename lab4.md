@@ -30,7 +30,7 @@ Add a description for the schema
 
 ### 4. Click anywhere in the "Schema Text" field, not the green "Browse" button.
 
-### 5. Copy the content of `customers_v1.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
+### 5. Copy the content of `customers_v1.avsc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
 
 ````
 cat customers_v1.avsc
@@ -169,7 +169,7 @@ We recommend uploading the new version, to avoid typos. Press "Clear".
 
 ![schema_registry_clear_dialog](https://user-images.githubusercontent.com/32500181/210602550-662645cc-6c08-4a7f-926e-2009ba527454.png)
 
-### 4. Copy the content of `customers_v2.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
+### 4. Copy the content of `customers_v2.avsc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
 
 ````
 cat customers_v2.avsc
