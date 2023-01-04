@@ -167,7 +167,7 @@ We recommend uploading the new version, to avoid typos. Press "Clear".
 
 ### 3. You should now see a prompt resembling the below screenshot
 
-schema_registry_clear_dialog.png
+![schema_registry_clear_dialog](https://user-images.githubusercontent.com/32500181/210602550-662645cc-6c08-4a7f-926e-2009ba527454.png)
 
 ### 4. Copy the content of `customers_v2.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
 
@@ -180,8 +180,6 @@ Important review the schema to see the changes.
 ### 5. Provide a description for this revision
 
 ### 6. Press "Validate". You should see a "Schema is Valid" message
-
-schema_registry_add_version.png
 
 ![schema_registry_add_version](https://user-images.githubusercontent.com/32500181/210601144-f3d09788-bed3-4475-8f7a-fd38c8d9a585.png)
 
