@@ -33,7 +33,7 @@ Add a description for the schema
 ### 5. Copy the content of `customers_v1.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
 
 ````
-cat customers_v1.asc
+cat customers_v1.avsc
 ````
 
 ### 6. Leave the other fields unchanged
@@ -172,7 +172,7 @@ schema_registry_clear_dialog.png
 ### 4. Copy the content of `customers_v2.asc`file and paste in the "Schema Text" field. Run following commands to print file content, so you can copy it:
 
 ````
-cat customers_v2.asc
+cat customers_v2.avsc
 ````
 
 Important review the schema to see the changes.
