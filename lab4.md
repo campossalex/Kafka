@@ -125,14 +125,30 @@ Record value :
 ========
 ```
 
-### 5. Check SMM
+### 5. View records in SMM
 
-Opem SMM in the Overview tab and click `customers` topic, then the only partition of this topic.  
-You should be able to see one partition, a `producer` (left hand side) and a `consumer group`(right hands side) connected to the topic.
+a. Navigate to Streams Messaging Manager and find the customers_avro topic.
 
-<img width="1405" alt="lab3_smm_1" src="https://user-images.githubusercontent.com/32500181/210392825-13f6e87d-2aaa-4d49-b90c-b71f6ea17752.png">
+![smm-topics-customers-avro](https://user-images.githubusercontent.com/32500181/210568865-c9bda9a2-2317-4260-b70e-50dd75db5b33.png)
 
-As you can see, `producer` is identified as `producer-1`. Not very descriptive. Time to change this.
+b. Click the magnifying glass to open the "Data Explorer"
+
+c. Notice the records appear with odd characters in the "Value" field
+
+> This is because the data is Avro-serialized and SMM thinks the values are String
+
+![smm-data-explorer](https://user-images.githubusercontent.com/32500181/210568922-e6446fe3-48b3-47da-a8ae-1a61fe6236c9.png)
+
+d. Change the deserializer for the "Values" field to "Avro" using the `Values` drop-down. (See screenshot above)
+
+e. You should now see the values displayed in readable JSON format
+
+![smm-topics-customers-avro-with-schema](https://user-images.githubusercontent.com/32500181/210569160-5c6ba9cb-a54a-4255-9b70-c40883e3f27c.png)
+
+- The data is in Avro format, but SMM is rendering the data using JSON notation (this is common with Avro data)
+
+- Note the `null` values for the `phone_number` field
+
 
 ### 6. Add the client.id to producer
 
