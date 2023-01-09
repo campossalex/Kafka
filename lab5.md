@@ -55,7 +55,7 @@ In the second terminal tab/window, run the following command to produce `1000` m
 ``` 
 mvn -q exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
+    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 1000" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
