@@ -67,3 +67,8 @@ You now should see data in the charts Messages Consumed and End-to-end latency. 
 
 ![end-to-end-metrics](https://user-images.githubusercontent.com/32500181/210613548-cf200c6b-49ec-49ef-8143-7f49caa3f1e0.png)
 
+
+> Tip: use following comnand to describe the consumer group
+```
+kafka-consumer-groups   --bootstrap-server edge2ai-0.dim.local:9092   --group cust-relations   --describe
+```
