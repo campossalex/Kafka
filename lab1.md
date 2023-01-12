@@ -8,7 +8,7 @@
 
 ``` 
 kafka-topics --create \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --replication-factor 1 \
   --partitions 1 \
   --topic device_status
@@ -18,14 +18,14 @@ kafka-topics --create \
 
 ``` 
 kafka-topics --list \
-  --bootstrap-server edge2ai-0.dim.local:9092
+  --bootstrap-server $HOSTNAME:9092
 ```
   
  ### 3. Describe topics
 
 ``` 
 kafka-topics --describe \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --topic device_status
 ```
 
@@ -33,7 +33,7 @@ kafka-topics --describe \
 
 ``` 
 kafka-console-producer \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --topic device_status
 ```
 
@@ -41,7 +41,7 @@ kafka-console-producer \
 
 ``` 
 kafka-run-class kafka.tools.GetOffsetShell \
-  --broker-list edge2ai-0.dim.local:9092 \
+  --broker-list $HOSTNAME:9092 \
   --topic device_status --time -1
 ```
 
@@ -51,7 +51,7 @@ kafka-run-class kafka.tools.GetOffsetShell \
 
 ``` 
 kafka-console-consumer \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --topic device_status \
   --from-beginning \
   --group my-cli-consumer
@@ -61,7 +61,7 @@ kafka-console-consumer \
 
 ``` 
 kafka-consumer-groups \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --group my-cli-consumer \
   --describe
 ```
@@ -77,7 +77,7 @@ d. Start the consumer again (step 6), then check consumer offset (step 7).
 
 ```             
 kafka-topics --alter \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --topic device_status \
   --partitions 2
 ```
@@ -88,6 +88,6 @@ kafka-topics --alter \
 
 ```
 kafka-topics --delete \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --topic device_status
   ```
