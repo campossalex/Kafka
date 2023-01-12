@@ -54,7 +54,7 @@ Note there is one version "v1" of the schema
 
 ``` 
 kafka-topics --create \
-  --bootstrap-server edge2ai-0.dim.local:9092 \
+  --bootstrap-server $HOSTNAME:9092 \
   --replication-factor 1 \
   --partitions 1 \
   --topic customers_avro
@@ -67,7 +67,7 @@ In one of the terminals, run the following command:
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro" \
+    -Dexec.args="$HOSTNAME:9092 customers_avro" \
     -Dlog4j.configuration=file:src/main/consumer-log4j.properties
 ```
 
@@ -80,7 +80,7 @@ In the second terminal tab/window, run the following command to produce only `10
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
+    -Dexec.args="$HOSTNAME:9092 customers_avro 10" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
@@ -192,7 +192,7 @@ In the second terminal tab/window, run the following command to produce only `10
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers_avro 10" \
+    -Dexec.args="$HOSTNAME:9092 customers_avro 10" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
@@ -207,4 +207,3 @@ You should see the new default value for `phone_number` in the consumed records
 ### 9. View the data using Streams Messaging Manager
 
 Revisit the data in the `customers_avro` topic using Streams Messaging Manager. Remember to use the Avro schema (either version 1 or 2 will work) to view the messages. You should see the new default phone number on the latest records. The earliest records will still show `null` for the `phone_number`. This is because the producer actually wrote null as the `phone_number` value in the earlier records.
-
