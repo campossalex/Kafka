@@ -7,6 +7,7 @@
 - Lab 5: Enable End to End Latency  
 - Lab 6: Hive Table with Kafka  
 - Lab 7: Sql Stream Builder
+- Lab 8: Consumer groups
 
 
 Install maven:
