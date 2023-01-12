@@ -13,5 +13,6 @@ Install maven:
 
 Once logged in the shell, run:
 
-`sudo su` to get root access  
-`yum install -y maven`  
+```
+sudo yum install -y maven
+```
