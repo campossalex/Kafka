@@ -7,7 +7,7 @@
 ### 1. Creating topics
 
 ``` 
-/opt/kafka/bin/kafka-console-producer.sh  --create \
+/opt/kafka/bin/kafka-topics.sh  --create \
   --bootstrap-server localhost:9094 \
   --replication-factor 1 \
   --partitions 1 \
