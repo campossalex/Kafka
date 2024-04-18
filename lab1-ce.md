@@ -87,7 +87,7 @@ d. Start the consumer again (step 6), then check consumer offset (step 7).
 ### 10. Topic deletion
 
 ```
-/opt/kafka/bin/kafka-topicss.sh --delete \
+/opt/kafka/bin/kafka-topics.sh --delete \
   --bootstrap-server localhost:9094 \
   --topic device_status
   ```
