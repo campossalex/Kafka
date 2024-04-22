@@ -14,9 +14,9 @@ mvn clean package
 ```
 ### 1. Create the topic
 
-``` 
-Create a new topic (customers) using the web UI in SMM. Use the same configuration as below.
-  ```
+Create a new topic (customers) using the web UI in SMM. Use the same configuration as below.  
+
+<img width="450" src="https://github.com/campossalex/Kafka/assets/32500181/f983008b-a227-4e2d-b9d6-f9553dad8480">
 
  
 ### 2. Start the consumer
