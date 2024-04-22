@@ -52,13 +52,10 @@ Note there is one version "v1" of the schema
 
 ### 1. Create the topic
 
-``` 
-kafka-topics --create \
-  --bootstrap-server $HOSTNAME:9092 \
-  --replication-factor 1 \
-  --partitions 1 \
-  --topic customers_avro
-  ```
+Create a new topic (customers) using the web UI in SMM. Use the same configuration as below.  
+
+<img width="450" alt="Captura de pantalla 2024-04-22 a las 22 23 59" src="https://github.com/campossalex/Kafka/assets/32500181/6844ae0a-7cc7-4da4-acdb-a7a842eaf892">
+
  
 ### 2. Start the consumer
 
@@ -67,7 +64,7 @@ In one of the terminals, run the following command:
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
-    -Dexec.args="$HOSTNAME:9092 customers_avro" \
+    -Dexec.args="localhost:9094 customers_avro" \
     -Dlog4j.configuration=file:src/main/consumer-log4j.properties
 ```
 
@@ -75,12 +72,12 @@ You should see the consumer pause, waiting for messages in the `customers_avro` 
 
 ### 3. Start the Producer
 
-In the second terminal tab/window, run the following command to produce only `10` message to `customers_avro`topic:
+In the second terminal tab/window, run the following command to produce only `500` message to `customers_avro`topic:
 
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="$HOSTNAME:9092 customers_avro 10" \
+    -Dexec.args="localhost:9094 customers_avro 500" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
@@ -106,7 +103,7 @@ Here's the schema:
 
 You will then see information about the records sent by the producer:
 ```
-Sending message 1 of 10
+Sending message 1 of 500
 Sending customer id 185004 with NULL phone number
 Sent message: {"customer_id": 185001, "first_name": "Jamie", "last_name": "Rodriguez", "phone_number": null}
 ```
@@ -192,7 +189,7 @@ In the second terminal tab/window, run the following command to produce only `10
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="$HOSTNAME:9092 customers_avro 10" \
+    -Dexec.args="localhost:9094 customers_avro 10" \
     -Dlog4j.configuration=file:src/main/resources/producer-log4j.properties
 ``` 
 
