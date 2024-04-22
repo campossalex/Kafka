@@ -26,7 +26,7 @@ In one of the terminals, run the following command:
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleConsumer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers"
+    -Dexec.args="localhost:9094 customers"
 ```
 
 You should see the consumer pause, waiting for messages in the `customers` topic
@@ -43,7 +43,7 @@ In the second terminal tab/window, run the following command to produce `500` me
 ``` 
 mvn exec:java \
     -Dexec.mainClass="com.cloudera.training.kafka.solution.SimpleProducer" \
-    -Dexec.args="edge2ai-0.dim.local:9092 customers 500"
+    -Dexec.args="localhost:9094 customers 500"
 ``` 
 
 ### 4. See consumed messages
