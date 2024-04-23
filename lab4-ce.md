@@ -5,7 +5,7 @@
 Open two terminals and cd to this exercise directory:
 
 ```
-cd /tmp/resources/exercise-code/avro-schema-kafka
+cd exercise-code/avro-schema-kafka
 ```
 Compile / package the code. Note you will need to issue this command if any code is changed
 
