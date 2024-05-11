@@ -12,6 +12,13 @@ Compile / package the code. Note you will need to issue this command if any code
 ```
 mvn clean package
 ```
+
+### Set HOSTNAME
+
+```
+export HOSTNAME=localhost
+```
+
 ### 1. Recreate the topic
 
 
