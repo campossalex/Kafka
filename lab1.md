@@ -4,6 +4,12 @@
 - Publish messages and read messages from the command line
 - Understand topic offsets
 
+### Set HOSTNAME
+
+```
+export HOSTNAME=localhost
+```
+
 ### 1. Creating topics
 
 ``` 
